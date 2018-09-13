@@ -1,0 +1,46 @@
+{
+    "name": "rokka/laravel",
+    "description": "A Laravel wrapper for the Rokka PHP client library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raphaël Saunier",
+            "email": "raphael.saunier@liip.ch",
+            "homepage": "https://liip.ch"
+        }
+    ],
+    "homepage": "https://github.com/rokka-io/rokka-laravel",
+    "keywords": ["Laravel", "Rokka", "image", "resizing"],
+    "require": {
+        "illuminate/support": "~5",
+        "rokka/client": "^1.3",
+        "rokka/client-cli": "^1.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0",
+        "orchestra/testbench": "~3.0"
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Rokka\\RokkaLaravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rokka\\RokkaLaravel\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rokka\\RokkaLaravel\\RokkaLaravelServiceProvider"
+            ],
+            "aliases": {
+                "Rokka": "Rokka\\RokkaLaravel\\Facade"
+            }
+        }
+    }
+}
