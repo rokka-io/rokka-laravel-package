@@ -13,7 +13,7 @@
     "keywords": ["Laravel", "Rokka", "image", "resizing"],
     "require": {
         "illuminate/support": "~5",
-        "rokka/client": "^1.3",
+        "rokka/client": "^1.6",
         "rokka/client-cli": "^1.6"
     },
     "require-dev": {

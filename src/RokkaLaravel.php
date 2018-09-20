@@ -23,6 +23,11 @@ class RokkaLaravel
     protected $apiKey;
 
     /**
+     * @var array
+     */
+    protected $requestOptions;
+
+    /**
      * RokkaLaravel constructor.
      * @param string $env
      */
@@ -34,6 +39,7 @@ class RokkaLaravel
         }
         $this->organization = $config['name'];
         $this->apiKey = $config['key'];
+        $this->requestOptions = $config['requestOptions'];
     }
 
     /**
@@ -46,7 +52,7 @@ class RokkaLaravel
      */
     public function __call($methodName, $arguments)
     {
-        $rokka = new TemplateHelper($this->organization, $this->apiKey);
+        $rokka = new TemplateHelper($this->organization, $this->apiKey, $this->requestOptions);
         return call_user_func_array([$rokka, $methodName], $arguments);
     }
 
@@ -86,8 +92,8 @@ class RokkaLaravel
     public function getClient($client = 'image')
     {
         if ($client === 'user') {
-            return RokkaClientFactory::getUserClient();
+            return RokkaClientFactory::getUserClient($this->requestOptions);
         }
-        return RokkaClientFactory::getImageClient($this->organization, $this->apiKey);
+        return RokkaClientFactory::getImageClient($this->organization, $this->apiKey, $this->requestOptions);
     }
 }
