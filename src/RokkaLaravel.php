@@ -33,13 +33,13 @@ class RokkaLaravel
      */
     public function __construct($env = 'default')
     {
-        $config = config('rokka.organizations.' . $env, false);
+        $config = config('rokka', false);
         if (!$config) {
             throw new InvalidArgumentException(sprintf("Organization “%s” does not exist", $env));
         }
-        $this->organization = $config['name'];
-        $this->apiKey = $config['key'];
-        $this->requestOptions = $config['requestOptions'];
+        $this->organization = $config['organisation_name'];
+        $this->apiKey = $config['organisation_key'];
+        $this->requestOptions = $config['request_options'];
     }
 
     /**

@@ -1,11 +1,7 @@
 <?php
 
 return [
-    'organizations' => [
-        'default' => [
-            'name' => env('ROKKA_ORG'),
-            'key' => env('ROKKA_KEY'),
-            'requestOptions' => []
-        ],
-    ],
+    'organizations_name' => env('ROKKA_ORG'),
+    'organisation_key' => env('ROKKA_KEY'),
+    'request_options' => [],
 ];
