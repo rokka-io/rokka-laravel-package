@@ -40,6 +40,13 @@ class RokkaLaravel
         $this->organization = $config['organisation_name'];
         $this->apiKey = $config['organisation_key'];
         $this->requestOptions = $config['request_options'];
+
+        if (!$this->organization) {
+            throw new InvalidArgumentException("config rokka.organisation_name is invalid");
+        }
+        if (!$this->apiKey) {
+            throw new InvalidArgumentException("config rokka.organisation_key is invalid");
+        }
     }
 
     /**
