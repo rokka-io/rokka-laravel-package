@@ -28,6 +28,11 @@ class RokkaLaravel
     protected $requestOptions;
 
     /**
+     * @var string
+     */
+    protected $publicRokkaDomain;
+
+    /**
      * RokkaLaravel constructor.
      * @param string $env
      */
@@ -40,6 +45,7 @@ class RokkaLaravel
         $this->organization = $config['organisation_name'];
         $this->apiKey = $config['organisation_key'];
         $this->requestOptions = $config['request_options'];
+        $this->publicRokkaDomain = $config['public_rokka_domain'];
 
         if (!$this->organization) {
             throw new InvalidArgumentException("config rokka.organisation_name is invalid");
@@ -66,6 +72,19 @@ class RokkaLaravel
     public function getOrganization()
     {
         return $this->organization;
+    }
+
+    /**
+     * @param null $org
+     * @return null|string
+     */
+    public function getPublicRokkaDomain($org = null)
+    {
+        if (!$org) {
+            return $this->publicRokkaDomain;
+        }
+
+        return $org === $this->getOrganization() ? $this->publicRokkaDomain : null;
     }
 
     /**
