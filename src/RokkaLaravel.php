@@ -118,7 +118,7 @@ class RokkaLaravel
     public function getClient($client = 'image')
     {
         if ($client === 'user') {
-            return RokkaClientFactory::getUserClient($this->requestOptions);
+            return RokkaClientFactory::getUserClient($this->organization, $this->apiKey, $this->requestOptions);
         }
         return RokkaClientFactory::getImageClient($this->organization, $this->apiKey, $this->requestOptions);
     }
