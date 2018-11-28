@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27a7cf3aaf6a738e200fbb2fb1095cdb",
+    "content-hash": "370ed91627bab3068917b7ae4a61a086",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1186,16 +1186,16 @@
         },
         {
             "name": "rokka/client",
-            "version": "1.8.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rokka-io/rokka-client-php.git",
-                "reference": "e3fb24a20a38f6269c264969d79ddf035dce5c75"
+                "reference": "d73bc9b0ee61a7a84e0a6732c2017d5d1fae7ca4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rokka-io/rokka-client-php/zipball/e3fb24a20a38f6269c264969d79ddf035dce5c75",
-                "reference": "e3fb24a20a38f6269c264969d79ddf035dce5c75",
+                "url": "https://api.github.com/repos/rokka-io/rokka-client-php/zipball/d73bc9b0ee61a7a84e0a6732c2017d5d1fae7ca4",
+                "reference": "d73bc9b0ee61a7a84e0a6732c2017d5d1fae7ca4",
                 "shasum": ""
             },
             "require": {
@@ -1244,7 +1244,7 @@
                 "rokka",
                 "rokka.io"
             ],
-            "time": "2018-11-05T10:36:50+00:00"
+            "time": "2018-10-25T08:06:25+00:00"
         },
         {
             "name": "rokka/client-cli",
