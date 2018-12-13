@@ -1,6 +1,8 @@
 # Rokka Laravel Client
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
+<a href="https://packagist.org/packages/rokka/laravel"><img src="https://poser.pugx.org/rokka/laravel/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/rokka/laravel"><img src="https://poser.pugx.org/rokka/laravel/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/rokka/laravel"><img src="https://poser.pugx.org/rokka/laravel/license.svg" alt="License"></a>
 
 A thin wrapper around `rokka-io/rokka-client-php` with some convenience functions to play nice 
 with Laravel.
