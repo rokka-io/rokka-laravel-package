@@ -12,13 +12,9 @@
     "homepage": "https://github.com/rokka-io/rokka-laravel",
     "keywords": ["Laravel", "Rokka", "image", "resizing"],
     "require": {
-        "illuminate/support": "~5",
-        "rokka/client": "~1.8.0",
-        "rokka/client-cli": "~1.7.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~6.0",
-        "orchestra/testbench": "~3.0"
+        "illuminate/support": "^5|^6",
+        "rokka/client": "^1.8",
+        "rokka/client-cli": "^1.7"
     },
     "autoload": {
         "files": [
@@ -28,18 +24,13 @@
             "Rokka\\RokkaLaravel\\": "src/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Rokka\\RokkaLaravel\\Tests\\": "tests"
-        }
-    },
     "extra": {
         "laravel": {
             "providers": [
                 "Rokka\\RokkaLaravel\\RokkaLaravelServiceProvider"
             ],
             "aliases": {
-                "Rokka": "Rokka\\RokkaLaravel\\Facade"
+                "Rokka": "Rokka\\RokkaLaravel\\Facades\\Rokka"
             }
         }
     }
