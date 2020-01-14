@@ -24,7 +24,7 @@ the optional Facade inside `config/app.php`.
 ]
 'aliases' => [
   // ...
-  'Rokka' => Rokka\RokkaLaravel\Facade::class
+  'Rokka' => Rokka\RokkaLaravel\Facades\Rokka::class
 ]
 ```
 
@@ -62,4 +62,4 @@ the issue tracker.
 
 ## License
 
-MIT. Please see the [license file](license.md) for more information.
+MIT. Please see the [license file](LICENSE.MD) for more information.

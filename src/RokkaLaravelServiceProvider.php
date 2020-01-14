@@ -17,11 +17,10 @@ class RokkaLaravelServiceProvider extends ServiceProvider
     {
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
-
             // Publishing the configuration file.
             $this->publishes([
                 __DIR__ . '/../config/rokka.php' => config_path('rokka.php'),
-            ], 'rokka.config');
+            ], 'config');
         }
     }
 
@@ -35,7 +34,7 @@ class RokkaLaravelServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/rokka.php', 'rokka');
 
         // Register the service the package provides.
-        $this->app->singleton('rokka', function ($app) {
+        $this->app->singleton(self::ALIAS, function ($app) {
             return new RokkaLaravel;
         });
     }
@@ -47,6 +46,6 @@ class RokkaLaravelServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['rokka'];
+        return [self::ALIAS];
     }
 }

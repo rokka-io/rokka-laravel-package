@@ -33,6 +33,11 @@ class RokkaLaravel
     protected $publicRokkaDomain;
 
     /**
+     * @var TemplateHelper
+     */
+    protected $templateHelper;
+
+    /**
      * RokkaLaravel constructor.
      * @param string $env
      */
@@ -46,6 +51,14 @@ class RokkaLaravel
         $this->apiKey = $config['organisation_key'];
         $this->requestOptions = $config['request_options'];
         $this->publicRokkaDomain = $config['public_rokka_domain'];
+
+        $this->templateHelper = new TemplateHelper(
+            $this->organization,
+            $this->apiKey,
+            null,
+            $this->getPublicRokkaDomain(),
+            $this->requestOptions
+        );
 
         if (!$this->organization) {
             throw new InvalidArgumentException("config rokka.organisation_name is invalid");
@@ -65,8 +78,7 @@ class RokkaLaravel
      */
     public function __call($methodName, $arguments)
     {
-        $rokka = new TemplateHelper($this->organization, $this->apiKey, $this->requestOptions);
-        return call_user_func_array([$rokka, $methodName], $arguments);
+        return call_user_func_array([$this->templateHelper, $methodName], $arguments);
     }
 
     public function getOrganization()
@@ -95,31 +107,17 @@ class RokkaLaravel
      */
     public function images()
     {
-        return $this->getClient('image');
+        return RokkaClientFactory::getImageClient($this->organization, $this->apiKey, $this->requestOptions);
     }
 
     /**
      * Returns an instance of the Rokka user management client
      *
      * @see https://rokka.io/client-php-api/master/Rokka/Client/User.html
-     * @return \Rokka\Client\Image|\Rokka\Client\User
+     * @return \Rokka\Client\User
      */
     public function manage()
     {
-        return $this->getClient('user');
-    }
-
-    /**
-     * Return an instance of a Rokka Image or User client
-     *
-     * @param string $client
-     * @return \Rokka\Client\Image|\Rokka\Client\User
-     */
-    public function getClient($client = 'image')
-    {
-        if ($client === 'user') {
-            return RokkaClientFactory::getUserClient($this->organization, $this->apiKey, $this->requestOptions);
-        }
-        return RokkaClientFactory::getImageClient($this->organization, $this->apiKey, $this->requestOptions);
+        return RokkaClientFactory::getUserClient($this->organization, $this->apiKey, $this->requestOptions);
     }
 }
