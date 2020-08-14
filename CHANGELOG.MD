@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 0.4.1
+- Added Laravel 7.0 compatibility
+
 ## Version 0.4.0
 - Added Laravel 6.0 compatibility
 - Removed RokkaLaravel::getClient()
