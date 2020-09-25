@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 0.4.2
+- Added Laravel 8.0 compatibility
+
 ## Version 0.4.1
 - Added Laravel 7.0 compatibility
 
