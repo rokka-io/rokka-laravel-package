@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 0.5.1
+- Allow publicRokkaDomain to be null
+
 ## Version 0.5.0
 - Update Rokka client to 1.19.0
 - Update Rokka client cli to 1.9.10

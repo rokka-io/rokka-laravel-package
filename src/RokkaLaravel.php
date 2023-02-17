@@ -17,7 +17,7 @@ class RokkaLaravel
     protected string $organization;
     protected string $apiKey;
     protected array $requestOptions;
-    protected string $publicRokkaDomain;
+    protected ?string $publicRokkaDomain;
     protected TemplateHelper $templateHelper;
 
     /**
