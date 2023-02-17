@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.5.0
+- Update Rokka client to 1.19.0
+- Update Rokka client cli to 1.9.10
+- Removed support for PHP 7
+
 ## Version 0.4.3
 - Added Laravel 9.0 compatibility
 

@@ -3,8 +3,10 @@
 namespace Rokka\RokkaLaravel;
 
 use InvalidArgumentException;
+use Rokka\Client\Image;
 use Rokka\Client\TemplateHelper;
 use Rokka\Client\Factory as RokkaClientFactory;
+use Rokka\Client\User;
 
 /**
  * Class RokkaLaravel
@@ -12,36 +14,16 @@ use Rokka\Client\Factory as RokkaClientFactory;
  */
 class RokkaLaravel
 {
-    /**
-     * @var string
-     */
-    protected $organization;
+    protected string $organization;
+    protected string $apiKey;
+    protected array $requestOptions;
+    protected string $publicRokkaDomain;
+    protected TemplateHelper $templateHelper;
 
     /**
-     * @var string
-     */
-    protected $apiKey;
-
-    /**
-     * @var array
-     */
-    protected $requestOptions;
-
-    /**
-     * @var string
-     */
-    protected $publicRokkaDomain;
-
-    /**
-     * @var TemplateHelper
-     */
-    protected $templateHelper;
-
-    /**
-     * RokkaLaravel constructor.
      * @param string $env
      */
-    public function __construct($env = 'default')
+    public function __construct(string $env = 'default')
     {
         $config = config('rokka', false);
         if (!$config) {
@@ -72,25 +54,28 @@ class RokkaLaravel
      * Forward all other method calls to an instance of Rokka\Client\TemplateHelper
      *
      * @see https://rokka.io/client-php-api/master/Rokka/Client/TemplateHelper.html
-     * @param $methodName
-     * @param $arguments
+     * @param string $methodName
+     * @param array $arguments
      * @return mixed
      */
-    public function __call($methodName, $arguments)
+    public function __call(string $methodName, array $arguments): mixed
     {
         return call_user_func_array([$this->templateHelper, $methodName], $arguments);
     }
 
-    public function getOrganization()
+    /**
+     * @return string
+     */
+    public function getOrganization(): string
     {
         return $this->organization;
     }
 
     /**
-     * @param null $org
-     * @return null|string
+     * @param string|null $org
+     * @return string|null
      */
-    public function getPublicRokkaDomain($org = null)
+    public function getPublicRokkaDomain(?string $org = null): ?string
     {
         if (!$org) {
             return $this->publicRokkaDomain;
@@ -103,9 +88,9 @@ class RokkaLaravel
      * Returns an instance of the Rokka image
      *
      * @see https://rokka.io/client-php-api/master/Rokka/Client/Image.html
-     * @return \Rokka\Client\Image
+     * @return Image
      */
-    public function images()
+    public function images(): Image
     {
         return RokkaClientFactory::getImageClient($this->organization, $this->apiKey, $this->requestOptions);
     }
@@ -114,9 +99,9 @@ class RokkaLaravel
      * Returns an instance of the Rokka user management client
      *
      * @see https://rokka.io/client-php-api/master/Rokka/Client/User.html
-     * @return \Rokka\Client\User
+     * @return User
      */
-    public function manage()
+    public function manage(): User
     {
         return RokkaClientFactory::getUserClient($this->organization, $this->apiKey, $this->requestOptions);
     }

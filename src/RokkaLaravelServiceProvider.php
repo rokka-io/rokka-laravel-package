@@ -6,14 +6,14 @@ use Illuminate\Support\ServiceProvider;
 
 class RokkaLaravelServiceProvider extends ServiceProvider
 {
-    const ALIAS = 'rokka';
+    public const ALIAS = 'rokka';
 
     /**
      * Perform post-registration booting of services.
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
@@ -29,7 +29,7 @@ class RokkaLaravelServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/rokka.php', 'rokka');
 
@@ -44,7 +44,7 @@ class RokkaLaravelServiceProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return [self::ALIAS];
     }
