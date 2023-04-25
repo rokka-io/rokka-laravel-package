@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 0.5.3
+- Added Laravel 10.0 compatibility
+
 ## Version 0.5.2
 - Update Rokka client to 1.20.0
 
