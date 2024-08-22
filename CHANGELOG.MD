@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 0.6.0
+- Added support for Laravel 11
+- Added tests
+- Updated Rokka client to version 1.21
+- Updated minimum required PHP version to 8.1
+- Removed compatibility with end-of-life Laravel versions (5, 6, 7, 8, 9)
+
 ## Version 0.5.3
 - Added Laravel 10.0 compatibility
 
