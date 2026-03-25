@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 0.7.0
+- Added support for Laravel 12 & 13
+
 ## Version 0.6.0
 - Added support for Laravel 11
 - Added tests
